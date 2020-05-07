@@ -1,0 +1,22 @@
+{
+  "name": "@kevinfrom/cvrapi",
+  "version": "1.0.0",
+  "description": "A javascript class for using cvrapi.dk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinfrom/CvrApi.js.git"
+  },
+  "keywords": [
+    "cvrapi.dk",
+    "kevin",
+    "from",
+    "CvrApi.js",
+    "CvrApi"
+  ],
+  "author": "Kevin From <kevinfrom@live.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinfrom/CvrApi.js/issues"
+  },
+  "homepage": "https://github.com/kevinfrom/CvrApi.js#readme"
+}
