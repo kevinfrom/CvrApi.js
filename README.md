@@ -1,4 +1,4 @@
-# CvrApi plugin for CakePHP
+# CvrApi.js
 
 ## Installation
 npm:
