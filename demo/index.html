@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CvrApi.js - old</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <style>
+        html,
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body>footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">CvrApi.js</h1>
+                <h2 class="subtitle">Babel preset for IE11 and Safari 9 and above</h2>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="field">
+                <label class="label">Search cvrapi.dk</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Search..." id="search">
+                    <button class="button" type="submit" id="submit">Search</button>
+                </div>
+                <p class="help">You can search for company name, CVR/VAT, phone and production unit</p>
+            </div>
+            <div id="result">
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>CvrApi.js</strong> by <a href="https://linkedin.com/in/kevinfrom">Kevin From</a>. The source is
+                licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </footer>
+    <script src="../dist/CvrApi.min.js"></script>
+    <script>
+        var cvrApi = new CvrApi();
+
+        document.getElementById('submit').addEventListener('click', function () {
+            doSearch();
+        })
+        document.getElementById('search').addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                doSearch();
+            }
+        })
+
+        function doSearch() {
+            var query = document.getElementById('search').value;
+            document.getElementById('search').value = '';
+            var result = cvrApi.search(query);
+            document.getElementById('result').innerText = JSON.stringify(result);
+        }
+    </script>
+</body>
+
+</html>
