@@ -10,6 +10,9 @@ yarn:
 yarn add kevinfrom/CvrApi.js
 ````
 
+## Demoes
+Demoes for both ES6 and older browsers can be found in the ``demo``directory
+
 ## Examples (ES6)
 ES6 (ECMAScript 2015):
 ````
