@@ -1,5 +1,5 @@
 /**
- * CvrApi.js
+ * CvrApi.class.js
  * @author Kevin From <kevinfrom@live.dk>
  * @website https://kevinfrom.dk
  *
@@ -8,9 +8,9 @@
  */
 
 class CvrApi {
-	baseUrl = 'cvrapi.dk/api';
-
+	
 	constructor(country = 'dk', ssl = true) {
+		this.baseUrl = 'cvrapi.dk/api';
 		this.country = country;
 		this.ssl     = ssl;
 	}
