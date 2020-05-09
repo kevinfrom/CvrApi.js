@@ -2,9 +2,6 @@
  * CvrApi.class.js
  * @author Kevin From <kevinfrom@live.dk>
  * @website https://kevinfrom.dk
- *
- * Estimated browser support:
- * https://caniuse.com/#search=javascript%20class
  */
 
 class CvrApi {
