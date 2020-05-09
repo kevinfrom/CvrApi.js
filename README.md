@@ -10,9 +10,20 @@ yarn:
 yarn add kevinfrom/CvrApi.js
 ````
 
-## Examples
+## Examples (ES6)
+ES6 (ECMAScript 2015):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
+<script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.es6.js"><script>
+<script>
+    let cvrApi = new CvrApi();
+
+    cvrApi.search('Vestjysk Marketing');
+</script>
+````
+
+IE11 and Safari >= 9:
+````
+<script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.min.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
@@ -23,7 +34,6 @@ yarn add kevinfrom/CvrApi.js
 ### Country
 Set a different country:
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi('de');
 </script>
@@ -32,7 +42,6 @@ Set a different country:
 ### SSL/HTTPS
 Disable SSL/HTTPS (default true):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi('da', false);
 
@@ -43,7 +52,6 @@ Disable SSL/HTTPS (default true):
 ### Query search
 Search using query (integer/string):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
@@ -54,7 +62,6 @@ Search using query (integer/string):
 ### Search by company name
 Search by name (string):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
@@ -65,7 +72,6 @@ Search by name (string):
 ### Search by VAT
 Search by VAT (integer/string):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
@@ -78,7 +84,6 @@ Alias of searchByVat
 
 Search by CVR (integer/string):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
@@ -89,7 +94,6 @@ Search by CVR (integer/string):
 ### Search by production unit
 Search by production unit (integer/string):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
@@ -100,7 +104,6 @@ Search by production unit (integer/string):
 ### Search by phone
 Search by phone (integer/string):
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/CvrApi.js"><script>
 <script>
     var cvrApi = new CvrApi();
 
