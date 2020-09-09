@@ -4,10 +4,15 @@
  * @website https://kevinfrom.dk
  */
 
+interface RequestObject {
+    url: string,
+    method?: string
+}
+
 class CvrApi {
-    baseurl: string = 'cvrapi.dk/api';
-    country: string;
-    ssl: boolean;
+    private baseurl: string = 'cvrapi.dk/api';
+    private country: string;
+    private ssl: boolean;
 
     /**
      * Constructor
@@ -26,23 +31,33 @@ class CvrApi {
      * @param query 
      * @param type 
      */
-    getUrl(query: string, type: string = 'search') {
-        return encodeURI(`http${this.ssl ? 's' : ''}://${this.baseurl}?${type}=${query}&country=${this.country}`)
+    private getUrl(query: string, type: string = 'search') {
+        const url = encodeURI(`http${this.ssl ? 's' : ''}://${this.baseurl}?${type}=${query}&country=${this.country}`);
+
+        return {
+            url: url
+        }
     }
 
     /**
-     * Execute request
+     * Execute request and return JSON parsed response
      * 
-     * @param url
+     * @param string url
      */
-    execute(url: string) {
-        const request = new XMLHttpRequest();
-        request.open('GET', url, false);
-        request.send();
-
-        if (request.status === 200) {
-            return JSON.parse(request.responseText)
-        }
+    private execute(ReqObj: RequestObject) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open(ReqObj.method ?? 'GET', ReqObj.url);
+            xhr.onload = () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    resolve(JSON.parse(xhr.response));
+                } else {
+                    reject(xhr.statusText);
+                }
+            };
+            xhr.onerror = () => reject(xhr.statusText);
+            xhr.send();
+        });
     }
 
     /**

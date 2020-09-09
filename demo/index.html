@@ -53,7 +53,7 @@
     </footer>
     <script src="../CvrApi.js"></script>
     <script>
-        var cvrApi = new CvrApi();
+        const cvrApi = new CvrApi();
 
         document.querySelector('#submit').addEventListener('click', function () {
             doSearch();
@@ -65,10 +65,14 @@
         })
 
         function doSearch() {
-            var query = document.querySelector('#search').value;
+            const query = document.querySelector('#search').value;
             document.querySelector('#search').value = '';
-            var result = cvrApi.search(query);
-            document.querySelector('#result').innerText = JSON.stringify(result);
+            
+            cvrApi.search(query).then(data => {
+                document.querySelector('#result').innerText = JSON.stringify(data)
+            }).catch(error => {
+                document.querySelector('#result').innerText = error
+            })
         }
     </script>
 </body>

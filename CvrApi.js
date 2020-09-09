@@ -25,20 +25,32 @@ var CvrApi = /** @class */ (function () {
      */
     CvrApi.prototype.getUrl = function (query, type) {
         if (type === void 0) { type = 'search'; }
-        return encodeURI("http" + (this.ssl ? 's' : '') + "://" + this.baseurl + "?" + type + "=" + query + "&country=" + this.country);
+        var url = encodeURI("http" + (this.ssl ? 's' : '') + "://" + this.baseurl + "?" + type + "=" + query + "&country=" + this.country);
+        return {
+            url: url
+        };
     };
     /**
-     * Execute request
+     * Execute request and return JSON parsed response
      *
-     * @param url
+     * @param string url
      */
-    CvrApi.prototype.execute = function (url) {
-        var request = new XMLHttpRequest();
-        request.open('GET', url, false);
-        request.send();
-        if (request.status === 200) {
-            return JSON.parse(request.responseText);
-        }
+    CvrApi.prototype.execute = function (ReqObj) {
+        return new Promise(function (resolve, reject) {
+            var _a;
+            var xhr = new XMLHttpRequest();
+            xhr.open((_a = ReqObj.method) !== null && _a !== void 0 ? _a : 'GET', ReqObj.url);
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    resolve(JSON.parse(xhr.response));
+                }
+                else {
+                    reject(xhr.statusText);
+                }
+            };
+            xhr.onerror = function () { return reject(xhr.statusText); };
+            xhr.send();
+        });
     };
     /**
      * Search
