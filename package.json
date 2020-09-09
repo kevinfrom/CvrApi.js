@@ -12,7 +12,8 @@
     "from",
     "CvrApi.js",
     "CvrApi",
-    "typescript"
+    "typescript",
+    "declarations"
   ],
   "author": "Kevin From <kevinfrom@live.dk>",
   "license": "ISC",
