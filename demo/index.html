@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CvrApi.js - old</title>
+    <title>CvrApi.js@3.0.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
@@ -25,7 +25,7 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">CvrApi.js</h1>
-                <h2 class="subtitle">Babel preset for IE11 and Safari 9 and above</h2>
+                <h2 class="subtitle">Babel preset modern browsers</h2>
             </div>
         </div>
     </section>
@@ -47,29 +47,32 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>CvrApi.js</strong> by <a href="https://linkedin.com/in/kevinfrom">Kevin From</a>. The source is
-                licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+                <strong>CvrApi.js</strong> by <a href="https://linkedin.com/in/kevinfrom" target="_blank">Kevin From</a>.
             </p>
         </div>
     </footer>
-    <script src="../dist/CvrApi.min.js"></script>
+    <script src="../CvrApi.js"></script>
     <script>
-        var cvrApi = new CvrApi();
+        const cvrApi = new CvrApi();
 
-        document.getElementById('submit').addEventListener('click', function () {
+        document.querySelector('#submit').addEventListener('click', function () {
             doSearch();
         })
-        document.getElementById('search').addEventListener('keyup', function (event) {
+        document.querySelector('#search').addEventListener('keyup', function (event) {
             if (event.key === 'Enter') {
                 doSearch();
             }
         })
 
         function doSearch() {
-            var query = document.getElementById('search').value;
-            document.getElementById('search').value = '';
-            var result = cvrApi.search(query);
-            document.getElementById('result').innerText = JSON.stringify(result);
+            const query = document.querySelector('#search').value;
+            document.querySelector('#search').value = '';
+            
+            cvrApi.search(query).then(data => {
+                document.querySelector('#result').innerText = JSON.stringify(data)
+            }).catch(error => {
+                document.querySelector('#result').innerText = error
+            })
         }
     </script>
 </body>
