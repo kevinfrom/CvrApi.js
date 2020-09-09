@@ -11,24 +11,13 @@ yarn add kevinfrom/CvrApi.js
 ````
 
 ## Demoes
-Demoes for both ES6 and older browsers can be found in the ``demo``directory
+Demoes for both ES6 and older browsers can be found in the ``demo`` directory
 
-## Examples (ES6)
-ES6 (ECMAScript 2015):
+## Examples
 ````
 <script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.es6.js"><script>
 <script>
     let cvrApi = new CvrApi();
-
-    cvrApi.search('Vestjysk Marketing');
-</script>
-````
-
-IE11 and Safari >= 9:
-````
-<script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.min.js"><script>
-<script>
-    var cvrApi = new CvrApi();
 
     cvrApi.search('Vestjysk Marketing');
 </script>
