@@ -14,7 +14,10 @@ yarn add @kevinfrom/cvrapi
 Demo using promise can be found in the ``demo`` directory
 
 ## Disclaimer
-As per **3.0.0** all methods now return a **Promise**, for the old and deprecated synchronous **XMLHttpRequest** use **2.1.1**:
+As per **3.0.0** all methods now return a **Promise** - no more IE support. https://caniuse.com/promises
+
+For the old, deprecated **XMLHttpRequest** use **2.1.1** instead, as seen below:
+
 
 npm:
 ````
@@ -25,7 +28,16 @@ yarn:
 yarn add @kevinfrom/cvrapi@2.1.1
 ````
 
-## Examples
+## Example
+````
+<script>
+    var cvrApi = new CvrApi('da', false);
+
+    cvrApi.search('Vestjysk Marketing');
+</script>
+````
+
+# Usage
 ````
 <script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.js"><script>
 <script>
