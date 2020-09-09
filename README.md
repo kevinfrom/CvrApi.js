@@ -3,23 +3,39 @@
 ## Installation
 npm:
 ```
-npm i kevinfrom/CvrApi.js
+npm i @kevinfrom/cvrapi
 ```
 yarn:
 ````
-yarn add kevinfrom/CvrApi.js
+yarn add @kevinfrom/cvrapi
 ````
 
 ## Demoes
-Demoes for both ES6 and older browsers can be found in the ``demo`` directory
+Demo using promise can be found in the ``demo`` directory
+
+## Disclaimer
+As per **3.0.0** all methods now return a *Promise*, for the old and deprecated synchronous **XMLHttpRequest** use **2.1.1**:
+
+npm:
+````
+npm i @kevinfrom/cvrapi@^2.1.1
+````
+yarn:
+````
+yarn add @kevinfrom/cvrapi@2.1.1
+````
 
 ## Examples
 ````
-<script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.es6.js"><script>
+<script src="node_modules/kevinfrom/CvrApi.js/dist/CvrApi.js"><script>
 <script>
-    let cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.search('Vestjysk Marketing');
+    cvrApi.search('Vestjysk Marketing').then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -27,7 +43,7 @@ Demoes for both ES6 and older browsers can be found in the ``demo`` directory
 Set a different country:
 ````
 <script>
-    var cvrApi = new CvrApi('de');
+    const cvrApi = new CvrApi('de');
 </script>
 ````
 
@@ -35,9 +51,13 @@ Set a different country:
 Disable SSL/HTTPS (default true):
 ````
 <script>
-    var cvrApi = new CvrApi('da', false);
+    const cvrApi = new CvrApi('da', false);
 
-    cvrApi.search('Vestjysk Marketing');
+    cvrApi.search('Vestjysk Marketing').then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -45,9 +65,13 @@ Disable SSL/HTTPS (default true):
 Search using query (integer/string):
 ````
 <script>
-    var cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.search('Vestjysk Marketing');
+    cvrApi.search('Vestjysk Marketing').then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -55,9 +79,13 @@ Search using query (integer/string):
 Search by name (string):
 ````
 <script>
-    var cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.searchByName('Vestjysk Marketing');
+    cvrApi.searchByName('Vestjysk Marketing').then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -65,9 +93,13 @@ Search by name (string):
 Search by VAT (integer/string):
 ````
 <script>
-    var cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.searchByVat(10029155);
+    cvrApi.searchByVat(10029155).then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -77,9 +109,13 @@ Alias of searchByVat
 Search by CVR (integer/string):
 ````
 <script>
-    var cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.searchByCvr(10029155);
+    cvrApi.searchByCvr(10029155).then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -87,9 +123,13 @@ Search by CVR (integer/string):
 Search by production unit (integer/string):
 ````
 <script>
-    var cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.searchByProductionUnit(1007740219);
+    cvrApi.searchByProductionUnit(1007740219).then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
 
@@ -97,8 +137,12 @@ Search by production unit (integer/string):
 Search by phone (integer/string):
 ````
 <script>
-    var cvrApi = new CvrApi();
+    const cvrApi = new CvrApi();
 
-    cvrApi.searchByPhone(97320108);
+    cvrApi.searchByPhone(97320108).then(data => {
+        // do something with data
+    }).catch(error => {
+        console.log(error)
+    })
 </script>
 ````
