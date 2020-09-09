@@ -14,7 +14,7 @@ yarn add @kevinfrom/cvrapi
 Demo using promise can be found in the ``demo`` directory
 
 ## Disclaimer
-As per **3.0.0** all methods now return a *Promise*, for the old and deprecated synchronous **XMLHttpRequest** use **2.1.1**:
+As per **3.0.0** all methods now return a **Promise**, for the old and deprecated synchronous **XMLHttpRequest** use **2.1.1**:
 
 npm:
 ````
