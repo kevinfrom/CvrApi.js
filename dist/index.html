@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - CvrApi.js</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
+        integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+    <script src="/index.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <section class="section">
+            <div class="container">
+                <h1 class="title">
+                    {{ title }}
+                </h1>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" v-model="query" placeholder="Search...">
+                    </div>
+                </div>
+
+                <button class="button" @click="test">
+                    Fetch test data
+                </button>
+
+                <table v-if="data !== null" class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>{{ query</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(value, key) in data">
+                            <th>{{ capitalize(key) }}</th>
+                            <th>{{ capitalize(value) }}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script defer>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'CvrApi.js demo',
+                query: '',
+                data: null
+            },
+            methods: {
+                test: function () {
+                    if (this.query === '') return
+
+                    var cvrApi = new CvrApi()
+
+                    cvrApi.search(this.query)
+                        .then(res => {
+                            this.data = res
+                        })
+                },
+                // Capitalize first letter of a string
+                capitalize: function (s) {
+                    if (typeof s !== 'string') return ''
+                    return s.charAt(0).toUpperCase() + s.slice(1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
